@@ -60,7 +60,7 @@ class Fish extends ColdBlood{
         $this->printFish();
     }
     protected function printFish(){
-        echo "Sono un pesce. \n";
+        echo "Splash! \n";
     }
 }
 
@@ -86,4 +86,4 @@ class Amphibian extends ColdBlood{
     }
 }
 
-$rana = new Amphibian();
+$magikarp = new Fish();
