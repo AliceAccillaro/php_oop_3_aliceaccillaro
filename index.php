@@ -1,89 +1,60 @@
 <?php
 
-class Vertebrate{
-    public function __construct(){
-        $this->printVeterbrate();
-    }
-    protected function printVeterbrate(){
-        echo "Sono un animale vertebrato. \n";
+class Vertebrate {
+    public function printVertebrate() {
+        echo "Sono un animale vertebrato.\n";
     }
 }
 
-class WarmBlood extends Vertebrate{
-    public function __construct()
-    {
-        parent::__construct();
+class WarmBlood extends Vertebrate {
+    public function printWarmBlood() {
+        $this->printVertebrate();
+        echo "Sono un animale a sangue caldo.\n";
+    }
+}
+
+class ColdBlood extends Vertebrate {
+    public function printColdBlood() {
+        $this->printVertebrate();
+        echo "Sono un animale a sangue freddo.\n";
+    }
+}
+
+class Mammal extends WarmBlood {
+    public function printMammal() {
         $this->printWarmBlood();
+        echo "Sono un mammifero.\n";
     }
-    protected function printWarmBlood(){
-        echo "Sono un animale a sangue caldo. \n";
-    }
-} 
+}
 
-class ColdBlood extends Vertebrate{
-    public function __construct()
-    {
-        parent::__construct();
+class Bird extends WarmBlood {
+    public function printBird() {
+        $this->printWarmBlood();
+        echo "Sono un uccello.\n";
+    }
+}
+
+class Fish extends ColdBlood {
+    public function printFish() {
         $this->printColdBlood();
-    }
-    protected function printColdBlood(){
-        echo "Sono un animale a sangue freddo. \n";
+        echo "Splash!\n";
     }
 }
 
-class Mammal extends WarmBlood{
-    public function __construct()
-    {
-        parent::__construct();
-        $this->printMammal();
-    }
-    protected function printMammal(){
-        echo "Sono un mammifero. \n";
+class Reptile extends ColdBlood {
+    public function printReptile() {
+        $this->printColdBlood();
+        echo "Sono un rettile.\n";
     }
 }
 
-class Bird extends WarmBlood{
-    public function __construct()
-    {
-        parent::__construct();
-        $this->printBird();
-    }
-    protected function printBird(){
-        echo "Sono un uccello. \n";
+class Amphibian extends ColdBlood {
+    public function printAmphibian() {
+        $this->printColdBlood();
+        echo "Sono un anfibio.\n";
     }
 }
 
-class Fish extends ColdBlood{
-    public function __construct()
-    {
-        parent::__construct();
-        $this->printFish();
-    }
-    protected function printFish(){
-        echo "Splash! \n";
-    }
-}
-
-class Reptile extends ColdBlood{
-    public function __construct()
-    {
-        parent::__construct();
-        $this->printReptile();
-    }
-    protected function printReptile(){
-        echo "Sono un rettile. \n";
-    }
-}
-
-class Amphibian extends ColdBlood{
-    public function __construct()
-    {
-        parent::__construct();
-        $this->printAmphibian();
-    }
-    protected function printAmphibian(){
-        echo "Sono un anfibio. \n";
-    }
-}
 
 $magikarp = new Fish();
+$magikarp->printFish();
